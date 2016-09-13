@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :supplier
+  has_many :images
 
   def discounted?
     price.to_f < 100
@@ -11,5 +12,9 @@ class Product < ActiveRecord::Base
 
   def total
     price.to_f + tax
+  end
+
+  def top_image
+    images.first.url
   end
 end
