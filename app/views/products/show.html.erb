@@ -18,6 +18,7 @@
             <p>Description: <%= @product.description %></p>
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
             <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+            <p><a href="/suppliers/<%= @supplier.id %>">Supplied By: <%= @supplier.name %></a></p>
         </div>
       </div>
     </div>
