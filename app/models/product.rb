@@ -15,6 +15,11 @@ class Product < ActiveRecord::Base
   end
 
   def top_image
-    images.first.url
+    first_image = images.first
+    if first_image
+      images.first.url
+    else
+      "http://www.nerdtothethirdpower.com/wp-content/uploads/2015/02/Slider_Placeholder-620x270.png"
+    end
   end
 end
