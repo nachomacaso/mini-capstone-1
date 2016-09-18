@@ -23,5 +23,15 @@
             <p><a href="/suppliers/<%= @supplier.id %>">Supplied By: <%= @supplier.name %></a></p>
         </div>
       </div>
+      <%= form_tag "/orders", method: :post do %>
+        <%= text_field_tag :quantity, nil, placeholder: "Quantity" %>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <%= submit_tag 'Buy Now!' %>
+      <% end %>
     </div>
   </section>
+
+
+
+
+

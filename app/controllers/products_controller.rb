@@ -1,10 +1,16 @@
 class ProductsController < ApplicationController
+
   def index
     @products = Product.all
     sort_attribute = params[:sort] 
     sort_order = params[:sort_order]
     discount_level = params[:discount]
     search_term = params[:search_term]
+    category = params[:category]
+
+    if category
+      @products = Category.find_by(name: category).products
+    end
 
     if search_term
       fuzzy_search_term = "%#{search_term}%"
