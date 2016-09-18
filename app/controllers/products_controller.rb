@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
 
     if category
       @products = Category.find_by(name: category).products
+      #<Category 20948723094823 name= "wearable">.products
+      #<Proctuct 34092834098234 >.categories
     end
 
     if search_term
@@ -49,6 +51,7 @@ class ProductsController < ApplicationController
 
   def show
       @product = Product.find_by(id: params[:id])
+      @categories = @product.categories
       @supplier = @product.supplier
   end
 
