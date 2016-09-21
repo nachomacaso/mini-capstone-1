@@ -8,33 +8,29 @@ Product.create!([
   {name: "revenge of the jedi poster", description: "it's poster, you should buy it.", price: "15.0", supplier_id: 1},
   {name: "princess bride t-shirt", description: "they are shirts, you should buy them", price: "5.0", supplier_id: 2}
 ])
-
-CategoryProduct.create!([
-  {product_id: 4,category_id: 1},
-  {product_id: 8,category_id: 1},
-  {product_id: 2,category_id: 2},
-  {product_id: 4,category_id: 2},
-  {product_id: 5,category_id: 2},
-  {product_id: 6,category_id: 2},
-  {product_id: 7,category_id: 2},
-  {product_id: 6,category_id: 3},
-  {product_id: 1,category_id: 4},
-  {product_id: 2,category_id: 4},
-  {product_id: 3,category_id: 4},
-  {product_id: 4,category_id: 4},
-  {product_id: 5,category_id: 4},
-  {product_id: 6,category_id: 4},
-  {product_id: 7,category_id: 4},
-  ])
-  
-
 Category.create!([
   {name: "wearable"},
   {name: "collectible"},
   {name: "game"},
   {name: "waste money"}
 ])
-
+CategoryProduct.create!([
+  {category_id: 1, product_id: 4},
+  {category_id: 1, product_id: 8},
+  {category_id: 2, product_id: 2},
+  {category_id: 2, product_id: 4},
+  {category_id: 2, product_id: 5},
+  {category_id: 2, product_id: 6},
+  {category_id: 2, product_id: 7},
+  {category_id: 3, product_id: 6},
+  {category_id: 4, product_id: 1},
+  {category_id: 4, product_id: 2},
+  {category_id: 4, product_id: 3},
+  {category_id: 4, product_id: 4},
+  {category_id: 4, product_id: 5},
+  {category_id: 4, product_id: 6},
+  {category_id: 4, product_id: 7}
+])
 Image.create!([
   {url: "http://i120.photobucket.com/albums/o176/d_jedi1/Who/qmx-10thdoctorsonic-1.jpg", product_id: 1},
   {url: "http://s32.postimg.org/6mceui22t/wnyx_mug.png", product_id: 2},
@@ -59,5 +55,5 @@ Supplier.create!([
   {name: "comicbook guy's functional clothing", email: "kevinsmith@gmail.com", phone: "999-555-1111"}
 ])
 User.create!([
-  {name: "joe", email: "joe@gmail.com", password_digest: "$2a$10$mu.QTHX6JrZXeCjla/M9J.1SUlaa66HaWSvn2mhWGdasnL3Dt0hIO"}
+  {name: "joe", email: "joe@gmail.com", password: "password"}
 ])

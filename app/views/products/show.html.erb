@@ -25,16 +25,17 @@
                 <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
               <% end %>
             </ul>
-
-            <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
-            <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+            <% if current_user && current_user.admin %>
+              <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+              <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+            <% end %>
             <p><a href="/suppliers/<%= @supplier.id %>">Supplied By: <%= @supplier.name %></a></p>
         </div>
       </div>
-      <%= form_tag "/orders", method: :post do %>
+      <%= form_tag "/carted_products", method: :post do %>
         <%= text_field_tag :quantity, nil, placeholder: "Quantity" %>
         <%= hidden_field_tag :product_id, @product.id %>
-        <%= submit_tag 'Buy Now!' %>
+        <%= submit_tag 'Add to Cart!', class: "btn btn-warning" %>
       <% end %>
     </div>
   </section>

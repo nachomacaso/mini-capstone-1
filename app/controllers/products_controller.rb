@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_admin!, except: [:index, :show]
+
   def index
-    @products = Product.all
+    @products = Product.all.includes(:images)
     sort_attribute = params[:sort] 
     sort_order = params[:sort_order]
     discount_level = params[:discount]
@@ -10,8 +12,6 @@ class ProductsController < ApplicationController
 
     if category
       @products = Category.find_by(name: category).products
-      #<Category 20948723094823 name= "wearable">.products
-      #<Proctuct 34092834098234 >.categories
     end
 
     if search_term
@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+
   end
 
   def create

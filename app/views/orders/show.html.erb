@@ -1,10 +1,12 @@
-<h1><%= current_user.name %> Your Order is Here!</h1>
+<h1><%= @order.user.name %> Your Order is Here!</h1>
 
-<h3>Title: <%= @product.name %></h3>
 <h3>Order id: <%= @order.id_present_to_customer %></h3>
 <h3>Purchased on <%= @order.pretty_created_at %></h3>
-<h3>Quantity: <%= @order.quantity %></h3>
-<img src="<%= @product.top_image %>" alt="<%= @product.name %>">
+
+<% @order.carted_products.each do |carted_product| %>
+  <h3>Title: <%= carted_product.product.name %> - qty: <%= carted_product.quantity %></h3>
+<% end %>
+
 <h3>Subtotal: <%= number_to_currency(@order.subtotal) %></h3>
 <h3>Tax: <%= number_to_currency(@order.tax) %></h3>
 <h3>Total: <%= number_to_currency(@order.total) %></h3>
